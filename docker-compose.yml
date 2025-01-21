@@ -1,0 +1,7 @@
+services:
+  muto:
+    build: .
+    container_name: muto_container
+    # volumes:
+      # - .:/muto_ws
+    command: /bin/bash -c "source /muto_ws/install/setup.sh && ros2 launch /muto_ws/launch/muto.launch.py vehicle_id:=contributor-01"
