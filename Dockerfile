@@ -5,6 +5,8 @@ RUN apt-get update && apt-get install -y \
     python3-colcon-common-extensions \
     python3-vcstool \
     ros-humble-ackermann-msgs \
+    ros-humble-demo-nodes-cpp \
+    ros-humble-demo-nodes-py \
     git \
  && rm -rf /var/lib/apt/lists/*
 
