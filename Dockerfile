@@ -13,15 +13,19 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /muto_ws
 
 COPY muto.repos .
+COPY build_symlink.sh .
+COPY rosdep.sh .
+COPY muto_bringup.sh .
 RUN mkdir -p src && vcs import src < muto.repos
 
 RUN apt-get update && rosdep update && \
     rosdep install --from-paths src --ignore-src -r -y && \
     rm -rf /var/lib/apt/lists/*
 
-RUN . /opt/ros/humble/setup.sh && colcon build --symlink-install --event-handlers console_direct+
-
 COPY launch/ launch/
 COPY config/ config/
 
-CMD ["/bin/bash", "-c", "source /muto_ws/install/setup.sh && ros2 launch /muto_ws/launch/muto.launch.py vehicle_id:=contributor-01"]
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
