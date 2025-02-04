@@ -1,7 +1,10 @@
 services:
   muto:
+    tty: true
     build: .
     container_name: muto_container
     volumes:
       - .:/muto_ws
-    command: /bin/bash -c "source /muto_ws/install/setup.bash && exec bash"
+    ports:
+      - "5678:5678"  # debugpy port
+    command: /bin/sh -c "/muto_ws/bootstrap.sh && pip3 install debugpy"

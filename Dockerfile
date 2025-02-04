@@ -10,22 +10,10 @@ RUN apt-get update && apt-get install -y \
     git \
  && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /muto_ws
+COPY . /muto_ws
 
-COPY muto.repos .
-COPY build_symlink.sh .
-COPY rosdep.sh .
-COPY muto_bringup.sh .
-RUN mkdir -p src && vcs import src < muto.repos
+RUN chmod +x /muto_ws/*.sh
+RUN pip install debugpy
 
-RUN apt-get update && rosdep update && \
-    rosdep install --from-paths src --ignore-src -r -y && \
-    rm -rf /var/lib/apt/lists/*
 
-COPY launch/ launch/
-COPY config/ config/
-
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
-
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/muto_ws/docker-entrypoint.sh"]

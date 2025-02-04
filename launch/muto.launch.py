@@ -16,7 +16,7 @@ def generate_launch_description():
         description="Vehicle ID namespace",
     )
     vehicle_id_arg = DeclareLaunchArgument(
-        "vehicle_id", default_value="hackracer-91", description="ATT ID"
+        "vehicle_id", default_value="contributor-01", description="Vehicle ID"
     )
 
     # for prints

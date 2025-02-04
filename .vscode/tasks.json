@@ -1,0 +1,51 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Remote: colcon: build symlink (debug)",
+      "type": "shell",
+      "command": [
+        ". /opt/ros/humble/setup.sh;",
+        "colcon build",
+        "--symlink-install",
+        "--event-handlers console_cohesion+ console_direct+",
+        "--base-paths /muto_ws",
+        "--cmake-args -DCMAKE_BUILD_TYPE=Debug"
+      ]
+    },
+    {
+      "label": "Remote: colcon: clean",
+      "type": "shell",
+      "command": [
+        "cd /muto_ws;",
+        "rm -rf build/ install/ log/;"
+      ]
+    },
+    {
+      "label": "Remote: colcon: test",
+      "type": "shell",
+      "command": [
+        "cd /muto_ws;",
+        ". /opt/ros/humble/setup.sh;",
+        ". install/setup.sh;",
+        "colcon test",
+        "--packages-select <package-name>",
+        "--event-handlers console_direct+;"
+      ]
+    },
+    {
+      "label": "Remote: Source ROS 2 and Workspace",
+      "type": "shell",
+      "command": "/bin/sh",
+      "args": [
+        "-c",
+        ". /opt/ros/humble/setup.sh && . /muto_ws/install/setup.sh"
+      ],
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
