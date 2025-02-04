@@ -14,7 +14,6 @@ RUN apt-get update && apt-get install -y \
 COPY . /muto_ws
 
 RUN chmod +x /muto_ws/*.sh
-RUN pip install debugpy
 RUN /bin/sh /muto_ws/bootstrap.sh
 
 ENTRYPOINT ["/muto_ws/docker-entrypoint.sh"]
