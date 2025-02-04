@@ -6,5 +6,4 @@ set -e
 
 echo "source /opt/ros/$ROS_DISTRO/setup.sh" >> ~/.bashrc
 echo "source /muto_ws/install/setup.sh" >> ~/.bashrc
-/bin/sh /muto_ws/start_debug.sh
 exec "$@"
