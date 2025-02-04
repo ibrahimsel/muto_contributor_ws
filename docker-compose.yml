@@ -3,8 +3,6 @@ services:
     tty: true
     build: .
     container_name: muto_container
-    volumes:
-      - .:/muto_ws
     ports:
       - "5678:5678"  # debugpy port
     command: /bin/sh
