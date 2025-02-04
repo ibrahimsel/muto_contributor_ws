@@ -23,7 +23,7 @@ def generate_launch_description():
     os.environ["PYTHONUNBUFFERED"] = "1"
 
     # Files
-    muto_params = "./config/muto.yaml"
+    muto_params = "/muto_ws/config/muto.yaml"
 
     # Agent
     node_agent = Node(

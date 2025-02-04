@@ -7,17 +7,15 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "ms-vscode.cpptools",
-                "ms-vscode.cpptools-themes",
-                "twxs.cmake",
-                "github.copilot",
-                "visualstudioexptteam.vscodeintellicode",
-                "eamodio.gitlens",
+                "ms-vscode.cpptools-extension-pack",
                 "ms-python.python",
+                "ms-python.vscode-pylance",
                 "ms-python.pylint",
+                "ms-python.debugpy",
+                "ms-python.black-formatter",
                 "ms-iot.vscode-ros",
-                "ms-vscode.cmake-tools",
-                "ms-vscode.cpptools-extension-pack"
+                "rangav.vscode-thunder-client",
+                "ms-vscode.cpptools"
             ]
         },
         "settings": {
@@ -48,6 +46,5 @@
         7777,
         11311,
         5678
-    ],
-    "postCreateCommand": "rosdep update && rosdep install --from-paths src --ignore-src -y"
+    ]
 }

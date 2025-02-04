@@ -1,6 +1,6 @@
 {
     "ros.distro": "humble",
-    "ros.rosSetupScript": "${workspaceFolder}/install/setup.bash",
+    "ros.rosSetupScript": "${workspaceFolder}/install/local_setup.sh",
     "python.autoComplete.extraPaths": [
         "/muto_ws/build/core",
         "/muto_ws/install/core/lib/python3.10/site-packages",
@@ -30,8 +30,7 @@
     "python.analysis.autoSearchPaths": true,
     "python.analysis.autoImportCompletions": true,
     "python.analysis.indexing": true,
-    "python.analysis.addImport.exactMatchOnly": false,
     "[python]": {
-        "editor.defaultFormatter": "ms-python.autopep8"
+        "editor.defaultFormatter": "ms-python.black-formatter"
     },
 }
