@@ -7,4 +7,4 @@ services:
       - .:/muto_ws
     ports:
       - "5678:5678"  # debugpy port
-    command: /bin/sh -c "/muto_ws/bootstrap.sh && pip3 install debugpy"
+    command: /bin/sh
