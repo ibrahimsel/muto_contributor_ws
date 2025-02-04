@@ -4,9 +4,7 @@ This workspace gets you quickly started by having ready to use shell scripts and
 
 ## To Start the Muto Service:
 ```bash
-docker compose run muto
-
-# or you could `docker compose up` and connect to the container from another terminal
+docker compose up -d
 ```
 
 # Launch Muto
