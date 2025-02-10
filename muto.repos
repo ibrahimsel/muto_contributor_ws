@@ -9,7 +9,7 @@ repositories:
     version: main
   core:
     type: git
-    url: https://github.com/ibrahimsel/core.git
+    url: https://github.com/eclipse-muto/core.git
     version: main
   messages:
     type: git
