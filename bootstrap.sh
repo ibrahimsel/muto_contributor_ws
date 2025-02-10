@@ -18,3 +18,4 @@ rosdep install -r -y --from-paths /muto_ws/src --ignore-src
 # Build workspace
 cd /muto_ws
 colcon build --symlink-install --event-handlers console_direct+ --cmake-args -DCMAKE_BUILD_TYPE=Release
+grep -qF 'MUTOTAG' $HOME/.bashrc || echo 'source /muto_ws/install/setup.bash # MUTOTAG' >> $HOME/.bashrc

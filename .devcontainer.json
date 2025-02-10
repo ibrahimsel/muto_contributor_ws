@@ -3,19 +3,21 @@
     "dockerComposeFile": "docker-compose.yml",
     "service": "muto",
     "workspaceFolder": "/muto_ws",
+    "shutdownAction": "stopCompose",
     "features": {},
     "customizations": {
         "vscode": {
             "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools",
                 "ms-vscode.cpptools-extension-pack",
-                "ms-python.python",
-                "ms-python.vscode-pylance",
-                "ms-python.pylint",
-                "ms-python.debugpy",
-                "ms-python.black-formatter",
                 "ms-iot.vscode-ros",
-                "rangav.vscode-thunder-client",
-                "ms-vscode.cpptools"
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-python.pylint",
+                "ms-python.vscode-pylance",
+                "ms-python.black-formatter",
+                "rangav.vscode-thunder-client"
             ]
         },
         "settings": {
@@ -30,6 +32,8 @@
             }
         }
     },
+    "postCreateCommand": "/bin/sh /muto_ws/bootstrap.sh",
+    "postAttachCommand": "grep -qF 'MUTOTAG' $HOME/.bashrc || echo 'source /muto_ws/install/setup.bash # MUTOTAG' >> $HOME/.bashrc",
     "containerEnv": {
         "DISPLAY": "unix:0",
         "ROS_LOCALHOST_ONLY": "1",

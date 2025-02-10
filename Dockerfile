@@ -11,9 +11,9 @@ RUN apt-get update && apt-get install -y \
     git \
  && rm -rf /var/lib/apt/lists/*
 
-COPY . /muto_ws
+#COPY . /muto_ws
 
-RUN chmod +x /muto_ws/*.sh
-RUN /bin/sh /muto_ws/bootstrap.sh
+#RUN chmod +x /muto_ws/*.sh
+#RUN /bin/sh /muto_ws/bootstrap.sh
 
-ENTRYPOINT ["/muto_ws/docker-entrypoint.sh"]
+#ENTRYPOINT ["/muto_ws/docker-entrypoint.sh"]
